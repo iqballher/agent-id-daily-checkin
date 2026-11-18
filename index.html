@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent ID Daily Check-in</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 640px; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; }
+  button { padding: 0.6rem 1.2rem; font-size: 1rem; cursor: pointer; }
+  button:disabled { opacity: 0.5; cursor: default; }
+  .card { border: 1px solid #ccc; border-radius: 8px; padding: 1rem; margin: 1rem 0; }
+  .muted { color: #666; }
+  table { width: 100%; border-collapse: collapse; }
+  td, th { text-align: left; padding: 0.35rem 0.25rem; border-bottom: 1px solid #eee; }
+  #status { min-height: 1.5em; }
+</style>
+</head>
+<body>
+<h1>Agent ID Daily Check-in</h1>
+<p class="muted">A daily check-in for Binance Agent ID holders on BNB Chain.
+Check in once per day, build your streak, and climb the leaderboard.
+Check-ins cost gas only. No token, no payments, no rewards promised.</p>
+
+<div class="card">
+  <button id="connectBtn">Connect wallet</button>
+  <p id="account" class="muted"></p>
+  <p id="status"></p>
+</div>
+
+<div class="card" id="mineCard" hidden>
+  <h2>Your check-in</h2>
+  <p>Streak: <strong id="myStreak">-</strong> day(s)</p>
+  <p>Total check-ins: <strong id="myTotal">-</strong></p>
+  <p>Last check-in day (UTC): <strong id="myLastDay">-</strong></p>
+  <button id="checkinBtn">Check in for today</button>
+</div>
+
+<div class="card">
+  <h2>Leaderboard (top streaks)</h2>
+  <button id="refreshBtn">Refresh leaderboard</button>
+  <table>
+    <thead><tr><th>#</th><th>Address</th><th>Streak</th><th>Total</th></tr></thead>
+    <tbody id="board"><tr><td colspan="4" class="muted">Not loaded yet.</td></tr></tbody>
+  </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/ethers@6.17.0/dist/ethers.umd.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
